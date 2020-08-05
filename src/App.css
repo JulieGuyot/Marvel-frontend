@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+/*HEADER*/
+
+.header {
+  background-color: black;
+  display: flex;
+  align-items: center;
+}
+.logo-marvel {
+  width: 400px;
+  object-fit: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header div {
+  color: white;
+  font-size: 30px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+
+  padding: 20px 20px;
+  margin-left: 150px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*CHARACTERS*/
+
+.characters {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*CHARACTER*/
+
+.character-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.character {
+  width: 300px;
+  height: 600px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+  margin: 30px 20px;
+  border: solid thin #ca0003;
+  border-radius: 10px;
+  padding: 10px 10px;
+}
+
+.character-name {
+  font-size: 30px;
+  padding-bottom: 10px;
   color: white;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.character-description {
+  color: white;
+  font-size: 20px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 22px;
 }
