@@ -6,6 +6,7 @@ import Characters from "./containers/Characters";
 import Comics from "./containers/Comics";
 import CharactersComics from "./containers/CharactersComics";
 import Header from "./components/Header";
+import Favorites from "./containers/Favorites";
 
 function App() {
   return (
@@ -23,7 +24,9 @@ function App() {
           <Route path="/comics">
             <Comics />
           </Route>
-
+          <Route path="/favorites">
+            <Favorites />
+          </Route>
           <Route path="/">
             <Characters />
           </Route>

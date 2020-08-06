@@ -4,6 +4,7 @@
   background-color: black;
   display: flex;
   align-items: center;
+  border-bottom: solid #ca0003;
 }
 .logo-marvel {
   width: 400px;
@@ -11,54 +12,115 @@
 }
 
 .header div {
-  color: white;
-  font-size: 30px;
+  color: #e7e1da;
+  font-size: 40px;
   font-family: Georgia, "Times New Roman", Times, serif;
 
   padding: 20px 20px;
   margin-left: 150px;
 }
 
-/*CHARACTERS*/
+/*CARDS*/
 
-.characters {
+.characters,
+.characters-comics,
+.comics {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   background-color: black;
 }
 
-/*CHARACTER*/
-
-.character-image {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-}
-
-.character {
-  width: 300px;
+.character,
+.comic,
+.detailed-character {
+  width: 280px;
   height: 600px;
+  color: #e7e1da;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin: 30px 20px;
+  justify-content: start;
+  margin: 70px 20px;
   border: solid thin #ca0003;
   border-radius: 10px;
   padding: 10px 10px;
 }
-
-.character-name {
-  font-size: 30px;
-  padding-bottom: 10px;
-  color: white;
-  text-align: center;
-  font-family: Georgia, "Times New Roman", Times, serif;
+.character-image,
+.detailed-character-image,
+.comic-photo {
+  width: 280px;
+  height: 300px;
+  object-fit: contain;
+  margin-top: 9px;
 }
 
-.character-description {
-  color: white;
+.character-name,
+.detailed-character-title,
+.comic-title {
+  font-size: 30px;
+  padding-bottom: 10px;
+  color: #e7e1da;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin: 20px 20px;
+}
+
+.character-description,
+.detailed-character-description,
+.comic-description {
+  color: #e7e1da;
   font-size: 20px;
   font-family: Georgia, "Times New Roman", Times, serif;
   line-height: 22px;
+  overflow: scroll;
+}
+
+/*SEARCH*/
+
+form {
+  width: 100%;
+  background-color: black;
+}
+form input {
+  font-size: 28px;
+  width: 500px;
+  margin: 30px 30px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: #e7e1da;
+}
+
+form button {
+  font-size: 30px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 10px 10px;
+  background-color: #e7e1da;
+  border-radius: 10px;
+}
+
+.bad-research {
+  height: 1000px;
+  background-color: black;
+  color: #e7e1da;
+  font-size: 30px;
+  padding: 50px 20px;
+}
+
+.favori {
+  background-color: #ca0003;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.favorites {
+  width: 100%;
+  background-color: black;
+  color: #e7e1da;
+  font-size: 35px;
+  display: flex;
+  justify-content: flex-end;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
