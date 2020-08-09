@@ -9,15 +9,14 @@ const Character = ({
   name,
   description,
   image,
-  id,
 }) => {
   return (
     <div className="character">
       <button
         className="favori"
         onClick={() => {
-          const newFavorite = [...favorite];
-          newFavorite.push(element.name);
+          let newFavorite = [...favorite];
+          newFavorite.push({ element });
           Cookies.set("favori", newFavorite, { expires: 30 });
           setFavorite(newFavorite);
           alert("Le personnage a bien été ajouté aux favoris");

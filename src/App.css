@@ -1,3 +1,12 @@
+/*GENERAL*/
+.loading-page {
+  background-color: black;
+  color: #e7e1da;
+  font-size: 28px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  height: 2000px;
+}
+
 /*HEADER*/
 
 .header {
@@ -114,4 +123,11 @@ form button {
   border-radius: 50%;
   position: absolute;
   font-size: 25px;
+}
+
+.favorites-page {
+  background-color: black;
+  height: 2000px;
+  display: flex;
+  flex-wrap: wrap;
 }

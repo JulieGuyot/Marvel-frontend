@@ -13,14 +13,13 @@ library.add(faHeart);
 function App() {
   const [favorite, setFavorite] = useState([]);
   const [page, setPage] = useState(1);
-  const [offset, setOffset] = useState(0);
   return (
     <div>
       <Router>
         <Header></Header>
         <Switch>
           <Route path="/characters/:id/comics">
-            <CharactersComics />
+            <CharactersComics favorite={favorite} setFavorite={setFavorite} />
           </Route>
           <Route path="/characters">
             {" "}
@@ -29,15 +28,13 @@ function App() {
               setFavorite={setFavorite}
               page={page}
               setPage={setPage}
-              offset={offset}
-              setOffset={setOffset}
             />
           </Route>
           <Route path="/comics">
-            <Comics />
+            <Comics favorite={favorite} setFavorite={setFavorite} />
           </Route>
           <Route path="/favorites">
-            <Favorites />
+            <Favorites favorite={favorite} setFavorite={setFavorite} />
           </Route>
           <Route path="/">
             <Characters
@@ -45,8 +42,6 @@ function App() {
               setFavorite={setFavorite}
               page={page}
               setPage={setPage}
-              offset={offset}
-              setOffset={setOffset}
             />
           </Route>
         </Switch>

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 import Comic from "../components/Comic";
 import SearchComic from "../components/SearchComic";
-import SearchCharacter from "../components/SearchCharacter";
 
-const Comics = () => {
+const Comics = ({ favorite, setFavorite }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
+  Cookies.set("favorite", favorite);
   const fetchData = async () => {
     const response = await axios.get("http://localhost:3000/comics");
     console.log(response.data);
@@ -20,7 +21,7 @@ const Comics = () => {
   }, []);
 
   return isLoading ? (
-    <span>En cours de chargement... </span>
+    <div className="loading-page">En cours de chargement... </div>
   ) : (
     <>
       {" "}
@@ -31,11 +32,14 @@ const Comics = () => {
             return (
               <div>
                 <Comic
+                  element={element}
                   title={element.title}
                   description={element.description}
                   image={
                     element.thumbnail.path + "." + element.thumbnail.extension
                   }
+                  favorite={favorite}
+                  setFavorite={setFavorite}
                 />
               </div>
             );

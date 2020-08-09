@@ -6,9 +6,9 @@ import Character from "../components/Character";
 import Pagination from "../components/Pagination";
 import SearchCharacter from "../components/SearchCharacter.js";
 
-const Characters = (favorite, setFavorite) => {
+const Characters = ({ favorite, setFavorite }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   const [offset, setOffset] = useState(0);
   const [page, setPage] = useState(1);
 
@@ -29,7 +29,7 @@ const Characters = (favorite, setFavorite) => {
   }, [offset]);
 
   return isLoading ? (
-    <span>En cours de chargement... </span>
+    <div className="loading-page">En cours de chargement... </div>
   ) : (
     <>
       <SearchCharacter
@@ -38,14 +38,6 @@ const Characters = (favorite, setFavorite) => {
         setData={setData}
         offset={offset}
       />
-      <Pagination
-        offset={offset}
-        setOffset={setOffset}
-        data={data}
-        page={page}
-        setPage={setPage}
-      />
-
       {data.data.results.length > 0 ? (
         <div className="characters">
           {data.data.results.map((element, index) => {
@@ -54,7 +46,7 @@ const Characters = (favorite, setFavorite) => {
                 <Link to={"/characters/" + element.id + "/comics"}>
                   <Character
                     element={element}
-                    id={element.id}
+                    key={element.id}
                     name={element.name}
                     description={element.description}
                     image={
@@ -75,6 +67,13 @@ const Characters = (favorite, setFavorite) => {
           }
         </div>
       )}
+      <Pagination
+        offset={offset}
+        setOffset={setOffset}
+        data={data}
+        page={page}
+        setPage={setPage}
+      />
     </>
   );
 };

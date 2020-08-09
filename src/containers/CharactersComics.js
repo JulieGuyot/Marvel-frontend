@@ -24,7 +24,7 @@ const CharactersComics = () => {
   }, []);
 
   return isLoading ? (
-    <span>En cours de chargement... </span>
+    <div className="loading-page">En cours de chargement... </div>
   ) : (
     <div className="characters-comics">
       {data.data.results.map((element, index) => {
@@ -32,6 +32,7 @@ const CharactersComics = () => {
           <>
             <DetailedCharacter
               title={element.title}
+              key={element.id}
               description={element.description}
               image={element.thumbnail.path + "." + element.thumbnail.extension}
             />
