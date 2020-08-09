@@ -1,26 +1,36 @@
 import React from "react";
-const Pagination = ({ setPage, page, count }) => {
-  const renderPage = () => {
-    const limit = 100;
-    let newCount = count / limit;
 
-    const rest = count % limit;
-    if (rest !== 0) {
-      newCount = Math.floor(newCount) + 1;
-    }
-    for (let i = 1; i <= newCount; i++) {
-      page.push(
-        <button
-          onClick={() => {
-            setPage(i);
-          }}
-        >
-          {i}
-        </button>
-      );
-    }
-    return page;
-  };
-  return <div>{renderPage()}</div>;
+const Pagination = ({ setPage, page, data, offset, setOffset }) => {
+  return (
+    <>
+      <div>
+        {data.data.offset > 0 && (
+          <button
+            onClick={() => {
+              setOffset(offset - 100);
+              setPage(page - 1);
+            }}
+          >
+            Page précédente
+          </button>
+        )}
+        <div>
+          <span>{page}</span>
+        </div>
+
+        {data.data.offset + 100 < data.data.total && (
+          <button
+            onClick={() => {
+              setOffset(offset + 100);
+              setPage(page + 1);
+            }}
+          >
+            Page Suivante
+          </button>
+        )}
+      </div>
+    </>
+  );
 };
+
 export default Pagination;

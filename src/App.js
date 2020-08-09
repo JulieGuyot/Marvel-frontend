@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -7,8 +7,13 @@ import Comics from "./containers/Comics";
 import CharactersComics from "./containers/CharactersComics";
 import Header from "./components/Header";
 import Favorites from "./containers/Favorites";
-
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+library.add(faHeart);
 function App() {
+  const [favorite, setFavorite] = useState([]);
+  const [page, setPage] = useState(1);
+  const [offset, setOffset] = useState(0);
   return (
     <div>
       <Router>
@@ -19,7 +24,14 @@ function App() {
           </Route>
           <Route path="/characters">
             {" "}
-            <Characters />
+            <Characters
+              favorite={favorite}
+              setFavorite={setFavorite}
+              page={page}
+              setPage={setPage}
+              offset={offset}
+              setOffset={setOffset}
+            />
           </Route>
           <Route path="/comics">
             <Comics />
@@ -28,7 +40,14 @@ function App() {
             <Favorites />
           </Route>
           <Route path="/">
-            <Characters />
+            <Characters
+              favorite={favorite}
+              setFavorite={setFavorite}
+              page={page}
+              setPage={setPage}
+              offset={offset}
+              setOffset={setOffset}
+            />
           </Route>
         </Switch>
       </Router>

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const SearchCharacter = ({ setData }) => {
+const SearchCharacter = ({ setData, offset }) => {
   const [search, setSearch] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `http://localhost:3000/characters?nameStartsWith=${search}`
+      `http://localhost:3000/characters?nameStartsWith=${search}&offset=${offset}`
     );
     setData(response.data);
     console.log(response.data);
@@ -21,7 +21,7 @@ const SearchCharacter = ({ setData }) => {
           type="text"
           onChange={(event) => setSearch(event.target.value)}
         ></input>
-        <button classname="search-button" type="submit" value="Submit">
+        <button className="search-button" type="submit" value="Submit">
           Rechercher
         </button>
       </form>

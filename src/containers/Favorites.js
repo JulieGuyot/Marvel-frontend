@@ -1,9 +1,19 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
-
-const Favorites = () => {
-  const location = useLocation();
-  let { favorite } = location.state;
-  return <div> {console.log(favorite.name)}</div>;
+import Cookies from "js-cookie";
+const Favorites = (favorite) => {
+  Cookies.get("favorite");
+  console.log(favorite);
+  return (
+    <div>
+      {favorite.map((elem, index) => {
+        return (
+          <div>
+            {elem.name}
+            {elem.description}
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 export default Favorites;

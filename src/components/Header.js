@@ -15,6 +15,9 @@ const Header = () => {
       <Link to={"/comics"}>
         <div>Comics</div>
       </Link>
+      <Link to={"/favorites"}>
+        <div>Favoris</div>
+      </Link>
     </div>
   );
 };
