@@ -7,7 +7,7 @@ const SearchComic = ({ setData }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `http://localhost:3000/comics?titleStartsWith=${search}`
+      `https://marvel-backend-jg.herokuapp.com/comics?titleStartsWith=${search}`
     );
     setData(response.data);
     console.log(response.data);

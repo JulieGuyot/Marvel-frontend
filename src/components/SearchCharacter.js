@@ -7,7 +7,7 @@ const SearchCharacter = ({ setData, offset }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `http://localhost:3000/characters?nameStartsWith=${search}&offset=${offset}`
+      `https://marvel-backend-jg.herokuapp.com/characters?nameStartsWith=${search}&offset=${offset}`
     );
     setData(response.data);
     console.log(response.data);

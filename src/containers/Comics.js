@@ -9,7 +9,9 @@ const Comics = ({ favorite, setFavorite }) => {
   const [data, setData] = useState([]);
   Cookies.set("favorite", favorite);
   const fetchData = async () => {
-    const response = await axios.get("http://localhost:3000/comics");
+    const response = await axios.get(
+      "https://marvel-backend-jg.herokuapp.com/comics"
+    );
     console.log(response.data);
     setData(response.data);
     setIsLoading(false);

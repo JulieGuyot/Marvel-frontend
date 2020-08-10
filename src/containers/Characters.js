@@ -16,7 +16,7 @@ const Characters = ({ favorite, setFavorite }) => {
 
   const fetchData = async () => {
     const response = await axios.get(
-      "http://localhost:3000/characters?&offset=${offset}"
+      "https://marvel-backend-jg.herokuapp.com/characters?&offset=${offset}"
     );
     console.log(response.data);
     setData(response.data);
